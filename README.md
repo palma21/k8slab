@@ -105,7 +105,7 @@ Tip: when deploying through the CLI, there’s an option to have it create/reuse
 
 - You have a working Kubernetes cluster and are able to access the web interface from Kubernetes on `http://127.0.0.1:8001/ui`
 - `kubectl get nodes` provides you the list of nodes
-- `kubectl clusterinfo` gives you information on your cluster
+- `kubectl cluster-info` gives you information on your cluster
 
 
 ## 4 - Deploying on Kubernetes
