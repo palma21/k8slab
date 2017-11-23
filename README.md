@@ -84,6 +84,8 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
    - Build an image, tagged “yourname/azure-vote”
 4. Spin up a Redis container (see Part 1), find the ip for it and run your freshly built “yourname/azure-vote”.  Make sure when you run it, to provide an environment variable with as its name `REDIS` and as its value the ip for the Redis container.  This is how our frontend knows where to call into Redis.
 
+> Tip: note that the frontend web server will _not_ be able to reach the Redis over "localhost".  Every container has its own ip address provisioned automatically by the Docker engine.  To get to this ip address, use `docker inspect [container-name]`.  Once you get this ip for Redis, give it to the frontend container by the `REDIS` environment variable.
+
 > Tip: find Docker documentation for building images [here](https://docs.docker.com/engine/reference/commandline/build/)
 
 ### Exit Criteria
