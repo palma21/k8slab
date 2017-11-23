@@ -28,6 +28,10 @@ The container you’ll run is backed by a simple Redis image which can just be r
 1. Pull the image from the public Docker registry and make sure you see it in your own local repo
 2. Run a Redis container, exposing port 6379
 
+> Tip: find Docker documentation for:
+> - pulling images [here](https://docs.docker.com/engine/reference/commandline/pull/)
+> - starting images [here](https://docs.docker.com/engine/reference/commandline/start/)
+
 
 ### Exit Criteria
 - a working container, which you can test by installing a Redis client:
@@ -67,7 +71,7 @@ The source code for the container to build is published on GitHub here: https://
 1. Clone the repo locally on your machine
 
 ~~~
-// when using ssh (make sure you have keys setup correctly):
+// when using ssh (make sure you have keys setup correctly; if not you might want to try http instead):
 git clone git@github.com:Azure-Samples/azure-voting-app-redis.git
 
 // when using http:
@@ -80,6 +84,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
    - Build an image, tagged “yourname/azure-vote”
 4. Spin up a Redis container (see Part 1), find the ip for it and run your freshly built “yourname/azure-vote”.  Make sure when you run it, to provide an environment variable with as its name `REDIS` and as its value the ip for the Redis container.  This is how our frontend knows where to call into Redis.
 
+> Tip: find Docker documentation for building images [here](https://docs.docker.com/engine/reference/commandline/build/)
 
 ### Exit Criteria
 
@@ -96,10 +101,11 @@ We’re now ready to spin up our own Kubernetes cluster in Azure to deploy our c
 
 1.	Create a resource group to deploy your cluster into.
 2.	Create a Kubernetes cluster, using ACS (“Azure Container Service”)
-Tip: when deploying through the CLI, there’s an option to have it create/reuse and store the ssh keys automatically, which is quite handy
+> Tip: when deploying through the CLI, there’s an option to have it create/reuse and store the ssh keys automatically, which is quite handy
 3.	Install the `kubectl` command line environment
+> Tip: you can do so through the `az` azure command line interface
 4.	Configure `kubectl` to point to your freshly created cluster
-
+> Tip: also this can be done from the `az` command line
 
 ### Exit Criteria
 
@@ -123,6 +129,8 @@ Now that we have our cluster up and running, it's time to start deploying a work
 
 1.	Create a manifest for deploying a single pod, containing just our Redis container.  (Note that this is not done in production; but it’s good for learning purposes to see how Kubernetes concepts stack up.)
 2.	Deploy the pod onto the cluster using `kubectl`
+
+> Tip: find the documentation for Kubernetes `Pod` resources [online here](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/#pod-templates)
 
 #### Exit Criteria
 
@@ -148,6 +156,9 @@ Use the environment variable `REDIS` and as its value the hostname for the Redis
 3.	Create a yaml file for the frontend Deployment and deploy it, exposing port `80` on the pod level and making sure it knows how to find the Redis’ backend
 4.	Create a yaml file for the frontend Service and deploy it, exposing port `80` to the public, making sure it is backed by a Load Balancer in Azure
 
+> Tip: find the documentation for:
+> - Kubernetes `Deployment` resources [online here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment)
+> - Kubernetes `Service` resources [online here](https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service)
 
 #### Exit Criteria
 
