@@ -16,7 +16,7 @@ Technologies covered:
 - _CLI:_ please install the azure cli from here: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli 
 - _Docker:_ install Docker CE from here: https://docs.docker.com/engine/installation/ 
 - _Git:_ install git using your package manager of choice
-- _VS Code:_ install visual studio code: https://code.visualstudio.com/
+- _(optional) VS Code:_ install visual studio code: https://code.visualstudio.com/
 
 ## 1 - Run a Docker container
 
